@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: ui-backend-for-deployment-system
+  name: ui-backend-for-deployment-system
+spec:
+  selector:
+    run: ui-backend-for-deployment-system
+  type: NodePort
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      nodePort: 30080

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: ui-backend-for-deployment-system
+  name: ui-backend-for-deployment-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: ui-backend-for-deployment-system
+  strategy:
+    rollingUpdate:
+  template:
+    metadata:
+      labels:
+        run: ui-backend-for-deployment-system
+    spec:
+      hostname: ui-backend-for-deployment-system
+      containers:
+        - name: ui-backend-for-deployment-system
+          image: latonaio/ui-backend-for-deployment-system:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: src
+              mountPath: /var/lib/aion/Data/direct-next-service_1/
+            - name: deploy-json-path
+              mountPath: /var/lib/aion/Data/deployment/aion-deployment-json/
+          env:
+            - name: MY_DOCKER_REGISTRY_PORT
+              value: "31112"
+            - name: MY_DEVICE_NAME
+              value: INPUT_MY_DEVICE
+            - name: MYSQL_HOST
+              value: mysql
+            - name: MYSQL_USER
+              value: toyota
+            - name: MYSQL_PASSWORD
+              value: t0y0ta!
+            - name: DB_NAME
+              value: Deployment
+            - name: MYSQL_PORT
+              value: "3306"
+      volumes:
+        - name: src
+          hostPath:
+            path: /var/lib/aion/Data/direct-next-service_1/
+        - name: deploy-json-path
+          hostPath:
+            path: /var/lib/aion/default/Data/deployment/aion-deployment-json/
