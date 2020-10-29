@@ -36,9 +36,9 @@ spec:
             - name: MYSQL_HOST
               value: mysql
             - name: MYSQL_USER
-              value: toyota
+              value: latona
             - name: MYSQL_PASSWORD
-              value: t0y0ta!
+              value: latonalatona
             - name: DB_NAME
               value: Deployment
             - name: MYSQL_PORT
