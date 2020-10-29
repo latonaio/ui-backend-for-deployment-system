@@ -44,7 +44,7 @@
 MYSQL_USERをMySQLユーザー名  
 MYSQL_PASSWORDをMySQLパスワード  
 
-3. 以下コマンドでkubernetes上にリソースを展開する  
+4. 以下コマンドでkubernetes上にリソースを展開する  
 `$ kubectl apply -f k8s/`
 
 ### 停止方法
