@@ -46,7 +46,7 @@ spec:
       volumes:
         - name: src
           hostPath:
-            path: /var/lib/aion/Data/direct-next-service_1/
+            path: /var/lib/aion/default/Data/direct-next-service_1/
         - name: deploy-json-path
           hostPath:
             path: /var/lib/aion/default/Data/deployment/aion-deployment-json/
